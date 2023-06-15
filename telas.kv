@@ -1,0 +1,498 @@
+ScreenManager:
+    SplashScreen:
+    RegisterScreen:
+    LoginScreen:
+    DashboardScreen:
+    MedScreen:
+    AlarmeScreen:
+    ChatScreen:
+
+<SplashScreen>:
+    name: 'splash'
+    BoxLayout:
+        size_hint: None, None
+        size: dp(400), dp(600)  # Definindo o tamanho da tela
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        orientation: 'vertical'
+        spacing: '10dp'
+        padding: '10dp'
+        canvas.before:
+            Color:
+                rgba: .1, .600, .1, 1  # Configuração de cor
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Image:
+            source: "images/docs2.png"
+            size_hint: None, None
+            size: dp(200), dp(200)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            allow_stretch: True
+        
+        MDLabel:
+            text: '[b]Eazy Medication[/b]'  # Adicionando tags [b] para negrito
+            halign: 'center'
+            markup: True  # Habilitando a interpretação das tags de marcação
+            font_size: '50sp'  # Ajustando o tamanho da fonte
+            pos_hint: {'center_y': 0.28}  # Movendo o rótulo para baixo
+
+        MDLabel:
+            text: 'Sistema de Controle de medicamentos'
+            halign: 'center'
+            pos_hint: {'center_y': 0.20}
+
+        MDRaisedButton:
+            text: 'Avançar'
+            pos_hint: {'center_x': 0.5}
+            md_bg_color: 0.5, 0.5, 0.5, 1  # Cor cinza da caixa
+            on_press: app.root.current = 'register'
+
+<RegisterScreen>:
+    name: 'register'
+    BoxLayout:
+        size_hint: None, None
+        size: dp(400), dp(600)  # Definindo o tamanho da tela
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        orientation: 'vertical'
+        spacing: '10dp'
+        padding: '10dp'
+        canvas.before:
+            Color:
+                rgba: .1, .600, .1, 1  # Configuração de cor
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDIconButton:
+            icon: "arrow-left"  # Ícone de seta para a esquerda
+            pos_hint: {'x': 0.02, 'top': 0.98}
+            halign: 'center'
+            user_font_size: "24sp"
+            on_press: app.root.current = 'splash' #Voltar
+
+        Image:
+            source: "images/Register_Tela.png"  # Substitua pelo caminho da imagem desejada
+            size_hint: None, None
+            size: dp(180), dp(180)
+            halign: 'center'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            allow_stretch: True
+
+        MDLabel:
+            text: '[b]Registre-se[/b]'  # Adicionando tags [b] para negrito
+            halign: 'center'
+            markup: True  # Habilitando a interpretação das tags de marcação
+            font_size: '30sp'  # Ajustando o tamanho da fonte
+            pos_hint: {'center_x': 0.5, 'top': 0.98}  # Movendo o rótulo para baixo
+
+
+        MDTextField:
+            hint_text: "Nome"
+            helper_text: "Digite seu nome"
+            helper_text_mode: "on_focus"
+            icon_left: 'account'
+            hint_text_color_normal: '#000000'
+            hint_text_color_focus: '#000000'
+            
+        MDTextField:
+            hint_text: "Idade"
+            helper_text: "Digite sua idade"
+            helper_text_mode: "on_focus"
+            icon_left: 'calendar-account'
+            hint_text_color_normal: '#000000'
+            hint_text_color_focus: '#000000'
+
+        MDTextField:
+            hint_text: "CPF"
+            helper_text: "Digite seu CPF"
+            helper_text_mode: "on_focus"
+            icon_left: 'badge-account-horizontal-outline'
+            hint_text_color_normal: '#000000'
+            hint_text_color_focus: '#000000'
+
+        MDTextField:
+            hint_text: "Senha"
+            helper_text: "Digite sua senha"
+            helper_text_mode: "on_focus"
+            password: True
+            icon_left: 'key-variant'
+            hint_text_color_normal: '#000000'
+            hint_text_color_focus: '#000000'
+
+        MDFlatButton:
+            text: 'Cadastrar'
+            pos_hint: {'center_x': 0.5}
+            md_bg_color: 0.5, 0.5, 0.5, 1  # Cor cinza da caixa
+            on_press: app.root.current = 'dashboard'
+        
+        MDRectangleFlatButton:
+            text: 'Login'
+            pos_hint: {'center_x': 0.9, 'y': 0.05}
+            on_press: app.root.current = 'login'
+
+<LoginScreen>:
+    name: 'login'
+    BoxLayout:
+        size_hint: None, None
+        size: dp(400), dp(600)  # Definindo o tamanho da tela
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        orientation: 'vertical'
+        spacing: '10dp'
+        padding: '10dp'
+        canvas.before:
+            Color:
+                rgba: .1, .600, .1, 1  # Configuração de cor
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDIconButton:
+            icon: "arrow-left"  # Ícone de seta para a esquerda
+            pos_hint: {'x': 0.02, 'top': 0.98}
+            halign: 'center'
+            user_font_size: "24sp"
+            on_press: app.root.current = 'register' #Voltar
+
+        Image:
+            source: "images/logIn.png"  # Substitua pelo caminho da imagem desejada
+            size_hint: None, None
+            size: dp(100), dp(100)
+            halign: 'center'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            allow_stretch: True
+
+        MDLabel:
+            text: '[b]Entrar[/b]'  # Adicionando tags [b] para negrito
+            halign: 'center'
+            markup: True  # Habilitando a interpretação das tags de marcação
+            font_size: '30sp'  # Ajustando o tamanho da fonte
+            pos_hint: {'center_x': 0.5, 'top': 0.98}  # Movendo o rótulo para baixo
+
+        MDTextField:
+            hint_text: "CPF"
+            helper_text: "Digite seu CPF"
+            helper_text_mode: "on_focus"
+            icon_left: 'badge-account-horizontal-outline'
+            normal_color: app.theme_cls.accent_color
+            hint_text: 'Digite seu CPF'
+            hint_text_color_normal: '#000000'
+            hint_text_color_focus: '#000000'
+
+        MDTextField:        
+            hint_text: "Senha"
+            helper_text: "Digite sua senha"
+            helper_text_mode: "on_focus"
+            password: True
+            icon_left: 'key-variant'
+            normal_color: app.theme_cls.accent_color
+            hint_text: 'Digite sua Senha'
+            hint_text_color_normal: '#000000'
+            
+
+        MDFlatButton:
+            text: 'Entrar'
+            on_release: app.button_click()
+            pos_hint: {'center_x': 0.5}
+            on_release: app.button_click()
+            md_bg_color: 0.5, 0.5, 0.5, 1  # Cor cinza da caixa
+            on_press: app.root.current = 'dashboard'
+
+<DashboardScreen>:
+    name: 'dashboard'
+    BoxLayout:
+        size_hint: None, None
+        size: dp(400), dp(600)  # Definindo o tamanho da tela
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        orientation: 'vertical'
+        spacing: '10dp'
+        padding: '10dp'
+        canvas.before:
+            Color:
+                rgba: .1, .600, .1, 1  # Configuração de cor
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDIconButton:
+            icon: "images/userconf.png"  # Ícone de seta para a esquerda
+            pos_hint: {'x': 0.02, 'top': 0.98}
+            halign: 'center'
+            user_font_size: "200sp"
+
+        MDLabel:
+            text: '[b]Olá[/b]'  # Adicionando tags [b] para negrito
+            halign: 'center'
+            markup: True  # Habilitando a interpretação das tags de marcação
+            font_size: '30sp'  # Ajustando o tamanho da fonte
+            pos_hint: {'center_x': 0.5, 'top': 0.98}  # Movendo o rótulo para baixo
+        
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: '10dp'
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: '10dp'
+                size_hint: 1, 0.6
+
+                MDFloatingActionButton:
+                    on_press: app.root.current = 'med'
+                    md_bg_color: 1, 1, 1, 1 
+                    size_hint: 0.5, 1.4
+                    halign: 'center'
+                    pos_hint: {'center_x': 0.5}
+                    BoxLayout:
+                        orientation: 'vertical'
+                        Image:
+                            source: "images/register.png"
+                        MDLabel:
+                            text: 'Cadastro de Medicamentos'
+                            halign: 'center'
+
+                MDFloatingActionButton:
+                    on_press: app.root.current = 'alarme'
+                    md_bg_color: 1, 1, 1, 1 
+                    size_hint: 0.5, 1.4
+                    halign: 'center'
+                    pos_hint: {'center_x': 0.5}
+                    BoxLayout:
+                        orientation: 'vertical'
+                        Image:
+                            source: "images/calendar4.png"
+                        MDLabel:
+                            text: 'Alertas'
+                            halign: 'center'
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: '10dp'
+
+                MDFloatingActionButton:
+                    on_press: app.root.current = 'chat'
+                    md_bg_color: 1, 1, 1, 1  # Cor de fundo branca
+                    size_hint: 0.5, 0.86
+                    halign: 'center'
+                    pos_hint: {'center_x': 0.5}
+                    BoxLayout:
+                        orientation: 'vertical'
+                        Image:
+                            source: "images/robo.png"
+                        MDLabel:
+                            text: 'ChatBot'
+                            halign: 'center'
+
+<MedScreen>:
+    name: 'med'
+    BoxLayout:
+        size_hint: None, None
+        size: dp(400), dp(600)  # Definindo o tamanho da tela
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        orientation: 'vertical'
+        spacing: '10dp'
+        padding: '10dp'
+        canvas.before:
+            Color:
+                rgba: .1, .600, .1, 1  # Configuração de cor
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDIconButton:
+            icon: "arrow-left"  # Ícone de seta para a esquerda
+            pos_hint: {'x': 0.02, 'top': 0.98}
+            halign: 'center'
+            user_font_size: "24sp"
+            on_press: app.root.current = 'dashboard' #Voltar
+
+        MDLabel:
+            text: '[b]Cadastrar Medicamento[/b]'  # Adicionando tags [b] para negrito
+            halign: 'center'
+            markup: True  # Habilitando a interpretação das tags de marcação
+            font_size: '30sp'  # Ajustando o tamanho da fonte
+            pos_hint: {'center_x': 0.5, 'top': 0.98} 
+
+        Image:
+            source: "images/meds3.png"
+            size_hint: None, None
+            size: dp(50), dp(50)
+            halign: 'center'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            allow_stretch: True
+
+        MDTextField:
+            hint_text: "Medicamento"
+            helper_text: "Digite o nome do medicamento"
+            helper_text_mode: "on_focus"
+            text_color_focus: .1, .1, .1, 1
+            background_color: .400, .1, .1, 1
+            
+        MDTextField:
+            hint_text: "Dosagem"
+            helper_text: "Digite a dose do Medicamento"
+            helper_text_mode: "on_focus"
+            text_color_focus: .1, .1, .1, 1
+            background_color: .400, .1, .1, 1
+
+        MDTextField:
+            hint_text: "Alerta"
+            helper_text: "Digite as informações do Alerta"
+            helper_text_mode: "on_focus"
+            text_color_focus: .1, .1, .1, 1
+            background_color: .400, .1, .1, 1
+
+
+        MDFlatButton:
+            text: 'Cadastrar'
+            on_release: app.button_click()
+            pos_hint: {'center_x': 0.5}
+            on_release: app.button_click()
+            md_bg_color: 0.5, 0.5, 0.5, 1  # Cor cinza da caixa
+            on_press: app.root.current = 'dashboard'
+
+<AlarmeScreen>:
+    name: 'alarme'
+    BoxLayout:
+        size_hint: None, None
+        size: dp(400), dp(600)  # Definindo o tamanho da tela
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        orientation: 'vertical'
+        spacing: '10dp'
+        padding: '10dp'
+        canvas.before:
+            Color:
+                rgba: .1, .600, .1, 1  # Configuração de cor
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            size_hint_y: None
+            height: dp(56)
+
+            MDIconButton:
+                icon: "arrow-left"  # Ícone de seta para a esquerda
+                pos_hint: {'x': 0.02, 'top': 0.98}
+                halign: 'center'
+                user_font_size: "24sp"
+                on_press: app.root.current = 'dashboard' #Voltar
+                
+            
+            MDLabel:
+                text: '[b]Alarmes[/b]'  # Adicionando tags [b] para negrito
+                halign: 'center'
+                pos_hint: {'x': 0.2, 'top': 0.98}  # Alterado o valor de "y" para 1.0
+                markup: True
+                font_size: '35sp'
+        
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: '10dp'
+            halign: 'center'
+            pos_hint: {'center_x': 0.5}
+            Widget:
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: '10dp'
+                size_hint: 1, None
+                height: dp(56)
+
+                MDFloatingActionButton:
+                    md_bg_color: 1, 1, 1, 1  # Cor de fundo branca
+                    size_hint: 1, None
+                    height: dp(56)
+                    halign: 'center'
+                    pos_hint: {'center_x': 0.5}
+                    BoxLayout:
+                        orientation: 'vertical'
+                        halign: 'left'
+                        pos_hint: {'center_x': 0.5}
+                        Image:
+                            source: "images/register.png"
+                            halign: 'left'
+                        MDLabel:
+                            id: alarm1_status
+                            text: 'Alarm 1: Desativado'
+                            halign: 'left'
+
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: '10dp'
+                size_hint: 1, None
+                height: dp(56)
+
+                MDFloatingActionButton:
+                    md_bg_color: 1, 1, 1, 1  # Cor de fundo branca
+                    size_hint: 1, None
+                    height: dp(56)
+                    halign: 'center'
+                    pos_hint: {'center_x': 0.5}
+                    BoxLayout:
+                        orientation: 'vertical'
+                        Image:
+                            source: "images/register.png"
+                        MDLabel:
+                            id: alarm2_status
+                            text: 'Alarm 2: Ativado'
+                            halign: 'left'
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: '10dp'
+                size_hint: 1, None
+                height: dp(56)
+                pos_hint: {'center_x': 0.5}
+                
+                MDFloatingActionButton:
+                    md_bg_color: 1, 1, 1, 1  # Cor de fundo branca
+                    size_hint: 1, None
+                    height: dp(56)
+                    halign: 'center'
+                    pos_hint: {'center_x': 0.5}
+                    BoxLayout:
+                        orientation: 'vertical'
+                        Image:
+                            source: "images/register.png"
+                        MDLabel:
+                            id: alarm3_status
+                            text: 'Alarm 3: Desativado'
+                            halign: 'left'    
+
+<ChatScreen>:
+    name: 'chat'
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        padding: 10
+        canvas.before:
+            Color:
+                rgba: 0.1, 0.6, 0.1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            size_hint_y: None
+            height: dp(56)
+
+            MDIconButton:
+                icon: "arrow-left"  # Ícone de seta para a esquerda
+                pos_hint: {'x': 0.02, 'top': 0.98}
+                halign: 'center'
+                user_font_size: "24sp"
+                on_press: app.root.current = 'dashboard'
+        MDLabel:
+            text: "Bem-vindo! Faça uma pergunta."
+            color: 1, 1, 1, 1
+
+        TextInput:
+            id: question_input
+            multiline: False
+            background_color: 1, 1, 1, 1
+
+        MDFlatButton:
+            text: "Enviar"
+            size_hint: 0.2, 0.1
+
+        MDFlatButton:
+            text: "Botão de áudio"
+            size_hint: 0.2, 0.1
+
